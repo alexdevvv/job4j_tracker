@@ -24,4 +24,12 @@ public class PointTest {
         double rsl = a.distance(b);
         assertThat(rsl, is(10.0));
     }
+
+    @Test
+    public void when000And004then4() {
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(0, 0, 4);
+        double rsl = a.distance3d(b);
+        assertThat(rsl, is(4.0));
+    }
 }
