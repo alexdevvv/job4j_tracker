@@ -23,7 +23,7 @@ public class Library {
         }
         for (int i = 0; i < books.length; i++) {
             Book bk = books[i];
-            if (bk.getName().equals("CleanCode")) {
+            if (bk.getName().equals("Clean code")) {
                 System.out.println("Name book "  + bk.getName() + "|" +  "Number the pages " + bk.getNumberPages());
             }
         }
