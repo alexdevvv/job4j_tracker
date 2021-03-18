@@ -63,7 +63,6 @@ public class Tracker {
         if(rsl) {
             items[indexID] = null;
             System.arraycopy(items, indexID + 1, items, indexID, size - indexID);
-            items[size - 1] = null;
             size--;
         } return rsl;
 
