@@ -10,7 +10,9 @@ public class StartUI {
         tracker.add(item1);
         tracker.add(item2);
 
-        System.out.println(tracker.findById(1).getName());
+        System.out.println(tracker.delete(1));
+//
+//        System.out.println(tracker.findById(1).getName());
         System.out.println(tracker.findById(2).getName());
 
     }
