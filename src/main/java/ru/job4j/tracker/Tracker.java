@@ -26,7 +26,8 @@ public class Tracker {
                 newNameItem[num++] = items[i];
             }
         }
-        return newNameItem;
+//        return newNameItem;
+          return Arrays.copyOf(newNameItem, num);
     }
 
     private int indexOf(int id) {
