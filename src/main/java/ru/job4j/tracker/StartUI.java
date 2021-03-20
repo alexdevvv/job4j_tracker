@@ -20,8 +20,7 @@ public class StartUI {
             } else if (select == 1) {
                 Item[] items = tracker.findAll();
                 for (int i = 0; i < items.length; i++) {
-                    Item item = items[i];
-                    System.out.println(item);
+                    System.out.println(items[i]);
                 }
             } else if (select == 2) {
                 System.out.println("Please enter the application id that you want to change: ");
@@ -30,7 +29,6 @@ public class StartUI {
                 String itemName = scanner.nextLine();
                 Item newItem = new Item(itemName);
                 if(tracker.replace(id, newItem)) {
-                    tracker.replace(id, newItem);
                     System.out.println("Replacement completed successfully");
                 } else {
                     System.out.println("Replacement completed error!");
@@ -40,7 +38,6 @@ public class StartUI {
                 System.out.println("Enter the Id to delete the request");
                 int id = Integer.valueOf(scanner.nextLine());
                 if (tracker.delete(id)) {
-                    tracker.delete(id);
                     System.out.println("The application was successfully deleted.");
                 } else {
                     System.out.println("Request deletion error");
@@ -50,7 +47,7 @@ public class StartUI {
                 int id = Integer.valueOf(scanner.nextLine());
                 Item newItem = tracker.findById(id);
                 if (newItem != null) {
-                    System.out.println(newItem.getName());
+                    System.out.println(newItem);
                 }else {
                     System.out.println("The application with this id was not found!");
                 }
@@ -60,8 +57,7 @@ public class StartUI {
                 Item[] arrayItems = tracker.findByName(nameItem);
                 if (arrayItems.length > 0) {
                     for (int i = 0; i < arrayItems.length; i++) {
-                        Item item = arrayItems[i];
-                        System.out.println(item);
+                        System.out.println(arrayItems[i]);
                     }
                 } else {
                     System.out.println("Applications with this name were not found");
