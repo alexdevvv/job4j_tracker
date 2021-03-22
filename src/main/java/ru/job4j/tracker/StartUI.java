@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import javax.sound.midi.Track;
 
 public class StartUI {
-    public static void createITeam(Input input, Tracker tracker) {
+    public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
@@ -65,7 +65,7 @@ public class StartUI {
             this.showMenu();
             int select = input.askInt("Select:");
             if (select == 0) {
-                StartUI.createITeam(input, tracker);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 StartUI.findAllItem(tracker);
             } else if (select == 2) {
