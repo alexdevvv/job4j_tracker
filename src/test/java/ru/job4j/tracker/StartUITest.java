@@ -24,4 +24,38 @@ public class StartUITest {
         ));
     }
 
+    @Test
+    public void whenFindAllItem() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        String name = "new Item";
+        Item item = tracker.add(new Item(name));
+        Input in = new StubInput(
+                new String[] {"1"}
+        );
+        UserAction[] actions = {
+                new FIndAllItems(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(item.getName(), is(name));
+    }
+
+    @Test
+    public void whenFindItemById() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        String name = "new Item";
+        Item item = tracker.add(new Item(name));
+        Input in = new StubInput(
+                new String[] {"1"}
+        );
+        UserAction[] actions = {
+                new FindByIdItem(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(item.getId(), is(name));
+    }
+
 }
