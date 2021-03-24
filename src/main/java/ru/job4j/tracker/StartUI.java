@@ -33,8 +33,8 @@ public class StartUI {
                 new FIndAllItems(output),
                 new FindByNameItem(output),
                 new FindByIdItem(output),
-                new ReplaceItem(),
-                new DeleteItem(),
+                new ReplaceItem(output),
+                new DeleteItem(output),
                 new Exit()
                 /* another actions */
         };
