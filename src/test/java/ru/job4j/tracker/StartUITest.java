@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
@@ -31,6 +30,7 @@ public class StartUITest {
                 new String[] {"0", "1"}
         );
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("New Item"));
         UserAction[] actions = {
                 new FIndAllItems(out),
                 new Exit()
@@ -41,6 +41,7 @@ public class StartUITest {
                         "0. Find all Items" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator() +
                         "=== Find all Items ====" + System.lineSeparator() +
+                        "Item{id=1, name='New Item'}" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find all Items" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator()
@@ -76,9 +77,11 @@ public class StartUITest {
     public void whenFindItemByName() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "1", "1"}
+                new String[] {"0", "Item", "1"}
         );
         Tracker tracker = new Tracker();
+        String name = "New Item";
+        Item item = tracker.add(new Item("Item"));
         UserAction[] actions = {
                 new FindByNameItem(out),
                 new Exit()
@@ -89,7 +92,7 @@ public class StartUITest {
                         "0. Find by Name Item" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator() +
                         "=== Find by Name Item ====" + System.lineSeparator() +
-                        "Applications with this name were not found" + System.lineSeparator() +
+                        "Item{id=1, name='Item'}" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Name Item" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator()
