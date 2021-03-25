@@ -41,7 +41,7 @@ public class StartUITest {
                         "0. Find all Items" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator() +
                         "=== Find all Items ====" + System.lineSeparator() +
-                        "Item{id=1, name='New Item'}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find all Items" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator()
@@ -92,7 +92,7 @@ public class StartUITest {
                         "0. Find by Name Item" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator() +
                         "=== Find by Name Item ====" + System.lineSeparator() +
-                        "Item{id=1, name='Item'}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Name Item" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator()
