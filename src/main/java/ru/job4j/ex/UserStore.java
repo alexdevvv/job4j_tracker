@@ -7,6 +7,7 @@ public class UserStore {
         for (int i = 0; i < users.length; i++) {
             if (login.equals(users[i].getUsername())) {
                 user = users[i];
+                break;
             }
         } if (user == null) {
             throw new UserNotFoundException("User not found exception");

@@ -14,7 +14,7 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -33,7 +33,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("New Item"));
         UserAction[] actions = {
                 new FIndAllItems(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -58,7 +58,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new FindByIdItem(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -84,7 +84,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Item"));
         UserAction[] actions = {
                 new FindByNameItem(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -97,6 +97,28 @@ public class StartUITest {
                         "0. Find by Name Item" + System.lineSeparator() +
                         "1. Exit." + System.lineSeparator()
         ));
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {/* Пункты меню: неверный, верный. */}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Exit" + ln
+                        + "Wrong input, you can select: 0 .. 0" + ln
+                        + "Menu." + ln
+                        + "0. Exit" + ln
+                )
+        );
     }
 
 }
