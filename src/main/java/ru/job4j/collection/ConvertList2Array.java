@@ -10,12 +10,9 @@ public class ConvertList2Array {
         for (Integer num : list) {
             array[row][cell] = num;
             cell++;
-            if(cell == 3) {
+            if (cell == cells) {
                 cell = 0;
                 row++;
-                if (row == 6) {
-                    break;
-                }
             }
         }
         return array;
@@ -25,7 +22,7 @@ public class ConvertList2Array {
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7);
         int[][] rsl = toArray(list, 3);
         for (int[] row : rsl) {
-            for(int cell : row) {
+            for (int cell : row) {
                 System.out.print(cell + " ");
             }
             System.out.println();
