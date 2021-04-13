@@ -14,4 +14,13 @@ public class PassportOfficeTest {
         office.add(citizen);
         assertThat(office.get(citizen.getPassport()), is(citizen));
     }
+
+    @Test
+    public void whenReturnNull() {
+        Citizen citizen = new Citizen("123abc", "Ivan Ivanov");
+        PassportOffice office = new PassportOffice();
+        office.add(citizen);
+        assertThat(office.add(new Citizen("123abc", "Ivan Ivanov")), is(false));
+
+    }
 }
