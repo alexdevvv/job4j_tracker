@@ -2,8 +2,6 @@ package ru.job4j.collection;
 
 import org.junit.Test;
 
-import org.junit.Test;
-
 import java.util.*;
 
 import static org.hamcrest.core.Is.is;
