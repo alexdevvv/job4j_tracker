@@ -17,11 +17,7 @@ public class PassportOffice {
     }
 
     public Citizen get(String passport) {
-        Citizen citizen = null;
-        if (citizens.containsKey(passport)) {
-           citizen = citizens.get(passport);
-       }
-     return citizen;
+        return citizens.get(passport);
     }
 
 
