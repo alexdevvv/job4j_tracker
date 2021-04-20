@@ -76,4 +76,34 @@ public class JobTest {
         Collections.sort(list, new PriorityDescendingComparator());
         assertThat(expect, is(list));
     }
+
+    @Test
+    public void whenNameByPriority() {
+        Comparator<Job> cmpNamePriority = new NameAscendingComparator().thenComparing(new PriorityAscendingComparator());
+        int rsl = cmpNamePriority.compare(
+                new Job("AAA", 0),
+                new Job("BBB", 10)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenPriorityByName() {
+        Comparator<Job> cmpPriorityName = new PriorityAscendingComparator().thenComparing(new NameAscendingComparator());
+        int rsl = cmpPriorityName.compare(
+                new Job("AAA", 0),
+                new Job("BBB", 10)
+        );
+        assertThat(rsl, lessThan(10));
+    }
+
+    @Test
+    public void whenDescendingNameByPriority() {
+        Comparator<Job> cmpDesNameByPriority = new NameDescendingComparator().thenComparing(new PriorityAscendingComparator());
+        int rsl = cmpDesNameByPriority.compare(
+                new Job("AAA", 0),
+                new Job("BBB", 10)
+        );
+        assertThat(rsl, lessThan(10));
+    }
 }
