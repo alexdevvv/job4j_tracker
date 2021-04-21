@@ -25,9 +25,7 @@ public class Profession {
         return birthday;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-
-
 }

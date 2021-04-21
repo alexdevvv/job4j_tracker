@@ -19,7 +19,7 @@ public class FindByIdItem implements UserAction {
         Item newItem = tracker.findById(id);
         if (newItem != null) {
             out.println(newItem);
-        }else {
+        } else {
             out.println("The application with this id was not found!");
         }
         return true;

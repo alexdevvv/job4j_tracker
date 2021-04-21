@@ -7,7 +7,6 @@ public class AddNewItem implements UserAction {
         this.out = out;
     }
 
-
     @Override
     public String name() {
         return "Add new Item";

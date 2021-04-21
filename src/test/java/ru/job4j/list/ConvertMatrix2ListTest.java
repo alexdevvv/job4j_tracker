@@ -17,7 +17,7 @@ public class ConvertMatrix2ListTest {
         int[][] input = {
                 {1, 2},
                 {3, 4}};
-        List<Integer> expect = Arrays.asList(1,2,3,4);
+        List<Integer> expect = Arrays.asList(1, 2, 3, 4);
         List resList = list.toList(input);
         assertThat(resList, is(expect));
 

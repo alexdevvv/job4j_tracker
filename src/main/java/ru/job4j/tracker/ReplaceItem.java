@@ -7,7 +7,6 @@ public class ReplaceItem implements UserAction {
         this.out = out;
     }
 
-
     @Override
     public String name() {
         return "Replace Items";
@@ -19,7 +18,7 @@ public class ReplaceItem implements UserAction {
         int id = input.askInt("Please enter the application id that you want to change: ");
         String itemName = input.askStr("Please enter the name of the application: ");
         Item newItem = new Item(itemName);
-        if(tracker.replace(id, newItem)) {
+        if (tracker.replace(id, newItem)) {
             out.println("Replacement completed successfully");
         } else {
             out.println("Replacement completed error!");

@@ -4,7 +4,7 @@ public class Fix {
 
     private String desc;
 
-    public Fix(String desc){
+    public Fix(String desc) {
         this.desc = desc;
     }
 

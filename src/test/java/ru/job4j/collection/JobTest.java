@@ -78,7 +78,8 @@ public class JobTest {
 
     @Test
     public void whenNameByPriority() {
-        Comparator<Job> cmpNamePriority = new NameAscendingComparator().thenComparing(new PriorityAscendingComparator());
+        Comparator<Job> cmpNamePriority = new NameAscendingComparator()
+                .thenComparing(new PriorityAscendingComparator());
         int rsl = cmpNamePriority.compare(
                 new Job("AAA", 0),
                 new Job("BBB", 10)
@@ -88,7 +89,8 @@ public class JobTest {
 
     @Test
     public void whenPriorityByName() {
-        Comparator<Job> cmpPriorityName = new PriorityAscendingComparator().thenComparing(new NameAscendingComparator());
+        Comparator<Job> cmpPriorityName = new PriorityAscendingComparator()
+                .thenComparing(new NameAscendingComparator());
         int rsl = cmpPriorityName.compare(
                 new Job("AAA", 0),
                 new Job("BBB", 10)
@@ -98,7 +100,8 @@ public class JobTest {
 
     @Test
     public void whenDescendingNameByPriority() {
-        Comparator<Job> cmpDesNameByPriority = new NameDescendingComparator().thenComparing(new PriorityAscendingComparator());
+        Comparator<Job> cmpDesNameByPriority = new NameDescendingComparator()
+                .thenComparing(new PriorityAscendingComparator());
         int rsl = cmpDesNameByPriority.compare(
                 new Job("AAA", 0),
                 new Job("BBB", 10)
@@ -108,13 +111,12 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameAndPrority() {
-        Comparator<Job> cmpNamePriority = new NameDescendingComparator().thenComparing(new PriorityAscendingComparator());
+        Comparator<Job> cmpNamePriority = new NameDescendingComparator()
+                .thenComparing(new PriorityAscendingComparator());
         int rsl = cmpNamePriority.compare(
                 new Job("Alex", 0),
                 new Job("Alex", 1)
         );
         assertThat(rsl, lessThan(0));
     }
-
-
 }
