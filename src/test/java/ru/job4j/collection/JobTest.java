@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 public class JobTest {
@@ -105,6 +104,16 @@ public class JobTest {
                 new Job("BBB", 10)
         );
         assertThat(rsl, lessThan(10));
+    }
+
+    @Test
+    public void whenCompatorByNameAndPrority() {
+        Comparator<Job> cmpNamePriority = new NameDescendingComparator().thenComparing(new PriorityAscendingComparator());
+        int rsl = cmpNamePriority.compare(
+                new Job("Alex", 0),
+                new Job("Alex", 1)
+        );
+        assertThat(rsl, lessThan(0));
     }
 
 
