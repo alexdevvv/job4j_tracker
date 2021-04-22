@@ -2,7 +2,6 @@
 language: java
 jdk:
   - openjdk14
-
 env:
   global:
     - CODECOV_TOKEN="58e97829-867f-4721-b08b-fcacf32588a6"
