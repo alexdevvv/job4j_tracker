@@ -2,10 +2,22 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс Account опичывает модель данных Account
+ * (аккаунт пользователя) с методами
+ * инициализаци и доступа к его полям.
+ * @author ALEKSANDR SERGEEV
+ * @version 1.0
+ */
 public class Account {
     private String requisite;
     private double balance;
 
+    /**
+     *
+     * @param requisite реквизиты аккаунта
+     * @param balance баланс аккаунта
+     */
     public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
