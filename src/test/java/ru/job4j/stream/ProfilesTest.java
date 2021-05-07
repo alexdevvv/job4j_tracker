@@ -16,13 +16,9 @@ public class ProfilesTest {
         List<Profile> list = new ArrayList<>();
         list.add(new Profile(new Address("Moskow", "Arbat", 34, 45)));
         list.add(new Profile(new Address("Ivanovo", "Lenina", 4, 9)));
-        List<Address> expect = Arrays.asList(
-                new Address("Ivanovo", "Lenina", 4, 9),
-                new Address("Moskow", "Arbat", 34, 45)
-                );
         Profiles profiles = new Profiles();
         List<Address> rls = profiles.collect(list);
-        assertThat(expect.get(1).getApartment(), is(rls.get(1).getApartment()));
+        assertThat(rls.get(0).getCity(), is("Ivanovo"));
     }
 
     @Test
@@ -38,6 +34,6 @@ public class ProfilesTest {
                 new Address("Omsk", "Stalina", 6, 1));
         Profiles profiles = new Profiles();
         List<Address> rls = profiles.collect(list);
-        assertThat(expect.get(2).getCity(), is(rls.get(2).getCity()));
+        assertThat(expect.size(), is(list.size() -1));
     }
 }
