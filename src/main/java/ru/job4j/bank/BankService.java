@@ -53,14 +53,11 @@ public class BankService {
      * такого пользователя нет в системе
      */
     public User findByPassport(String passport) {
-        User rsl = null;
-        for (User user : users.keySet()) {
-            if (passport.equals(user.getPassport())) {
-                rsl = user;
-                break;
-            }
-        }
-        return rsl;
+       return users.keySet()
+                .stream()
+                .filter(s -> s.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -72,18 +69,16 @@ public class BankService {
      * есть в системе, иначе возвращает null.
      */
     public Account findByRequisite(String passport, String requisite) {
-        Account rsl = null;
         User user = findByPassport(passport);
             if (user != null) {
-                for (Account account : users.get(user)) {
-                    if (account.getRequisite().equals(requisite)) {
-                        rsl = account;
-                        break;
-                    }
-                }
+                return users.get(user)
+                        .stream()
+                        .filter(s -> s.getRequisite().equals(requisite))
+                        .findFirst()
+                        .orElse(null);
             }
-            return rsl;
-        }
+        return null;
+    }
 
     /**
      * Метод принимает реквизиты и осуществляет перевод
