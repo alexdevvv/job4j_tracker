@@ -16,17 +16,17 @@ public class MapStudentsTest {
     @Test
     public void createMapStudents() {
         List<Student> listStudent = Arrays.asList(
-                new Student(1, "Vasin"),
-                new Student(1, "Vasin"),
-                new Student(89, "Feldman"),
-                new Student(10, "Zabolotny"),
-                new Student(11, "Zabolotny"),
-                new Student(19, "Buzova"),
-                new Student(98, "Makarov")
+                new Student("Vasin", 1),
+                new Student( "Vasin", 1),
+                new Student( "Feldman", 89),
+                new Student( "Zabolotny", 10),
+                new Student( "Zabolotny", 11),
+                new Student( "Buzova", 19),
+                new Student( "Makarov", 98)
         );
         Map<String, Student> expect = new HashMap<>();
-        expect.put("Feldman", new Student(95, "Feldman"));
-        expect.put("Makarov", new Student(98, "Makarov"));
+        expect.put("Feldman", new Student("Feldman", 95));
+        expect.put("Makarov", new Student("Makarov", 98));
         MapStudents ms = new MapStudents();
         Map<String , Student> rsl = ms.createMapStudents(listStudent);
         assertThat(rsl.size(), is(5));

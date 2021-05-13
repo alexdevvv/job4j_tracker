@@ -14,12 +14,12 @@ public class NotifyAccountTest {
 
     @Test
     public void sent() {
-        List<Account> list = Arrays.asList(
+        List<Account> list = List.of(
                 new Account("112233", "Alex", "30000"),
                 new Account("556633", "Ivan", "55000"),
                 new Account("112233", "Alex", "30000")
         );
-        Set<Account> expect = new HashSet<>(Arrays.asList(
+        Set<Account> expect = new HashSet<>(List.of(
                 new Account("112233", "Alex", "30000"),
                 new Account("556633", "Ivan", "55000")
              )
