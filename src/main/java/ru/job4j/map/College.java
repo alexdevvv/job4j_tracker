@@ -1,6 +1,7 @@
 package ru.job4j.map;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public class College {
@@ -10,24 +11,50 @@ public class College {
         this.students = students;
     }
 
-    public Student findByAccount(String account) {
-        return students.keySet().stream()
-                .filter(s -> s.getAccount().equals(account))
-                .findFirst()
-                .orElse(null);
-    }
+//    public Student findByAccount(String account) {
+//        return students.keySet().stream()
+//                .filter(s -> s.getAccount().equals(account))
+//                .findFirst()
+//                .orElse(null);
+//    }
+//
+//    public Subject findBySubjectName(String account, String name) {
+//        Student a = findByAccount(account);
+//        if (a != null) {
+//            students.get(a)
+//                    .stream()
+//                    .filter(s -> s.getName().equals(name))
+//                    .findFirst()
+//                    .orElse(null);
+//        }
+//        return null;
+//    }
 
-    public Subject findBySubjectName(String account, String name) {
-        Student a = findByAccount(account);
-        if (a != null) {
-            students.get(a)
-                    .stream()
-                    .filter(s -> s.getName().equals(name))
-                    .findFirst()
-                    .orElse(null);
+    public Optional<Student> findByAccount(String account) {
+//        Student rsl = null;
+        Optional<Student> rsl = Optional.empty();
+        for (Student s : students.keySet()) {
+            if (account.equals(s.getAccount())) {
+                rsl = Optional.of(s);
+                break;
+            }
         }
-        return null;
+        return rsl;
     }
 
+    public Optional<Subject> findBySubjectName(String account, String name) {
+        Optional<Subject> rsl = Optional.empty();
+        Optional<Student> s = findByAccount(account);
+        if (s.isPresent()) {
+            Set<Subject> subjects = students.get(s);
+            for (Subject subj : subjects) {
+                if (name.equals(subj.getName())) {
+                    rsl = Optional.of(subj);
+                    break;
+                }
+            }
 
+        }
+        return rsl;
+    }
 }

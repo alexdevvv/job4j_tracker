@@ -1,6 +1,7 @@
 package ru.job4j.map;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public class Main {
@@ -13,9 +14,9 @@ public class Main {
         );
 
         College college = new College(student);
-        Student rsl = college.findByAccount("000001");
+        Optional<Student> rsl = college.findByAccount("000001");
         System.out.println(rsl);
-        Subject sbj = college.findBySubjectName("000001", "Development Java");
+        Optional<Subject> sbj = college.findBySubjectName("000001", "Development Java");
         System.out.println(sbj);
     }
 }

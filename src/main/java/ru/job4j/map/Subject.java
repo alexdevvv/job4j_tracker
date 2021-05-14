@@ -30,8 +30,12 @@ public class Subject {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Subject subject = (Subject) o;
         return score == subject.score && Objects.equals(name, subject.name);
     }
@@ -43,9 +47,9 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "name='" + name + '\'' +
-                ", score=" + score +
-                '}';
+        return "Subject{"
+                + "name='" + name + '\''
+                + ", score=" + score
+                + '}';
     }
 }

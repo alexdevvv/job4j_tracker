@@ -41,10 +41,16 @@ public class Student {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
-        return Objects.equals(name, student.name) && Objects.equals(account, student.account) && Objects.equals(group, student.group);
+        return Objects.equals(name, student.name)
+                && Objects.equals(account, student.account)
+                && Objects.equals(group, student.group);
     }
 
     @Override
@@ -54,10 +60,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", account='" + account + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+        return "Student{"
+                + "name='" + name + '\''
+                + ", account='" + account + '\''
+                + ", group='" + group + '\''
+                + '}';
     }
 }
