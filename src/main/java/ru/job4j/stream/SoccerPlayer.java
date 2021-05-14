@@ -1,15 +1,6 @@
-package ru.job4j;
+package ru.job4j.stream;
 
 public class SoccerPlayer {
-    public static void main(String[] args) {
-        SoccerPlayer soccerPlayer = new Builder().getAge(33)
-                .getFirstName("Artem")
-                .getLastName("Derevo")
-                .getPosition("A")
-                .getInjury(false)
-                .getTransferCost(11.0)
-                .build();
-    }
 
     private String firstName;
 
@@ -25,21 +16,21 @@ public class SoccerPlayer {
 
     private double transferCost;
 
-
     static class Builder {
-         String firstName;
 
-         String lastName;
+         private String firstName;
 
-         int age;
+         private String lastName;
 
-         String position;
+         private int age;
 
-         String strikingLeg;
+         private String position;
 
-         boolean injury;
+         private String strikingLeg;
 
-         double transferCost;
+         private boolean injury;
+
+         private double transferCost;
 
          Builder getFirstName(String firstName) {
              this.firstName = firstName;
@@ -88,6 +79,31 @@ public class SoccerPlayer {
              return sp;
          }
 
+    }
+
+    @Override
+    public String toString() {
+        return "SoccerPlayer{"
+                + "firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
+                + ", age=" + age
+                + ", position='" + position + '\''
+                + ", strikingLeg='" + strikingLeg + '\''
+                + ", injury=" + injury
+                + ", transferCost=" + transferCost
+                + '}';
+    }
+
+    public static void main(String[] args) {
+        SoccerPlayer soccerPlayer = new Builder().getAge(33)
+                .getFirstName("Artem")
+                .getLastName("Derevo")
+                .getPosition("A")
+                .getInjury(false)
+                .getTransferCost(11.0)
+                .build();
+
+        System.out.println(soccerPlayer);
     }
 
 }
