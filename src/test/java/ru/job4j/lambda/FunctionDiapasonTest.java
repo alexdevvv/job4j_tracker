@@ -26,10 +26,4 @@ public class FunctionDiapasonTest {
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void whenIndicativeFunction() {
-        List<Double> result = FunctionDiapason.diapason(5, 8, x -> 2 * Math.pow(x, x) + 1);
-        List<Double> expected = Arrays.asList(51D, 73D, 99D);
-        assertThat(result, is(expected));
-    }
 }
