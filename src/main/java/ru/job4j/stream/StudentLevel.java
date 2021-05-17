@@ -8,15 +8,9 @@ import java.util.stream.Stream;
 
 public class StudentLevel {
     public static List<Student> levelOf(List<Student> students, int bound) {
-        Comparator<Student> comparator = new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o2.getSurname().compareTo(o1.getSurname());
-            }
-        };
         return students.stream()
                 .filter(Objects::nonNull)
-                .sorted(comparator)
+                .sorted((o1, o2) -> Integer.compare(o2.getScore(), o1.getScore()))
                 .takeWhile(st -> st.getScore() > bound)
                 .collect(Collectors.toList());
     }
