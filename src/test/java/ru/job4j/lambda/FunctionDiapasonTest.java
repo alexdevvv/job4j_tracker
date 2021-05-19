@@ -26,4 +26,11 @@ public class FunctionDiapasonTest {
         assertThat(result, is(expected));
     }
 
+    @Test
+    public void whenShowFunction() {
+        List<Double> result = FunctionDiapason.diapason(5, 8, x -> 2 * Math.pow(x, x) + 1);
+        List<Double> expected = Arrays.asList(6251D, 93313D, 1647087D);
+        assertThat(result, is(expected));
+    }
+
 }
