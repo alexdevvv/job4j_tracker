@@ -1,7 +1,7 @@
 package ru.job4j.math;
 
 public class MathFunction {
-    public static double sum(double first , double second) {
+    public static double sum(double first, double second) {
         return first + second;
     }
 
@@ -16,7 +16,5 @@ public class MathFunction {
     public static double division(double first, double second) {
         return first / second;
     }
-
-
 
 }
