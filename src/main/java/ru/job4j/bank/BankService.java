@@ -1,9 +1,6 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Класс BankService представляет собой упрощенную модель
@@ -52,12 +49,18 @@ public class BankService {
      * @return возвращаем найденого пользователя или null если
      * такого пользователя нет в системе
      */
+//    public User findByPassport(String passport) {
+//       return users.keySet()
+//                .stream()
+//                .filter(s -> s.getPassport().equals(passport))
+//                .findFirst()
+//                .orElse(null);
+//    }
     public User findByPassport(String passport) {
-       return users.keySet()
-                .stream()
-                .filter(s -> s.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+        Optional<User> rsl = users.keySet()
+                .stream().filter(s -> s.getPassport().equals(passport))
+                .findFirst();
+        return rsl.get();
     }
 
     /**
@@ -68,16 +71,27 @@ public class BankService {
      * @return возвращает аккаунт, если аккаунт с реквизитами
      * есть в системе, иначе возвращает null.
      */
+//    public Account findByRequisite(String passport, String requisite) {
+//        User user = findByPassport(passport);
+//            if (user != null) {
+//                return users.get(user)
+//                        .stream()
+//                        .filter(s -> s.getRequisite().equals(requisite))
+//                        .findFirst()
+//                        .orElse(null);
+//            }
+//        return null;
+//    }
     public Account findByRequisite(String passport, String requisite) {
+        Optional<Account> ac = Optional.empty();
         User user = findByPassport(passport);
-            if (user != null) {
-                return users.get(user)
-                        .stream()
-                        .filter(s -> s.getRequisite().equals(requisite))
-                        .findFirst()
-                        .orElse(null);
-            }
-        return null;
+        if (user != null) {
+            ac = users.get(user)
+                    .stream()
+                    .filter(s -> s.getRequisite().equals(requisite))
+                    .findFirst();
+        }
+        return ac.get();
     }
 
     /**
